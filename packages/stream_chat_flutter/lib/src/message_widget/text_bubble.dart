@@ -59,8 +59,6 @@ class TextBubble extends StatelessWidget {
     return Padding(
       padding: isOnlyEmoji ? EdgeInsets.zero : textPadding,
       child: Column(children: [
-        if (underMessageTextWidgetBuilder != null)
-          underMessageTextWidgetBuilder!(context, message),
         if (textBuilder != null)
           textBuilder!(context, message)
         else
@@ -76,6 +74,8 @@ class TextBubble extends StatelessWidget {
                   )
                 : messageTheme,
           ),
+        if (underMessageTextWidgetBuilder != null)
+          underMessageTextWidgetBuilder!(context, message),
       ]),
     );
   }
