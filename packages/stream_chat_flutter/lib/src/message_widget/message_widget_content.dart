@@ -228,7 +228,7 @@ class MessageWidgetContent extends StatelessWidget {
 
   /// {@macro userAvatarBuilder}
   final Widget Function(BuildContext, User)? userAvatarBuilder;
-  
+
   /// {@macro underMessageTextWidgetBuilder}
   final Widget Function(BuildContext, Message)? underMessageTextWidgetBuilder;
 
@@ -363,6 +363,8 @@ class MessageWidgetContent extends StatelessWidget {
                                             borderRadiusGeometry,
                                         borderSide: borderSide,
                                         shape: shape,
+                                        underMessageTextWidgetBuilder:
+                                            underMessageTextWidgetBuilder,
                                       ),
                               ),
                               // TODO: Make tail part of the Reaction Picker.

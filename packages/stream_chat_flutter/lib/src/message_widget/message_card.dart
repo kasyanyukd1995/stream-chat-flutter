@@ -232,6 +232,7 @@ class _MessageCardState extends State<MessageCard> {
             hasUrlAttachments: widget.hasUrlAttachments,
             onLinkTap: widget.onLinkTap,
             onMentionTap: widget.onMentionTap,
+            underMessageTextWidgetBuilder: widget.underMessageTextWidgetBuilder,
           ),
         ],
       ),
