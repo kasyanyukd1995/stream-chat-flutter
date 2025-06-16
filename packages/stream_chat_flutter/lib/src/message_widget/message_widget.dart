@@ -466,6 +466,7 @@ class StreamMessageWidget extends StatefulWidget {
     String? imageAttachmentThumbnailResizeType,
     String? imageAttachmentThumbnailCropType,
     AttachmentActionsBuilder? attachmentActionsModalBuilder,
+    Widget Function(BuildContext, Message)? underMessageTextWidgetBuilder,
   }) {
     return StreamMessageWidget(
       key: key ?? this.key,
@@ -538,6 +539,8 @@ class StreamMessageWidget extends StatefulWidget {
           this.imageAttachmentThumbnailCropType,
       attachmentActionsModalBuilder:
           attachmentActionsModalBuilder ?? this.attachmentActionsModalBuilder,
+      underMessageTextWidgetBuilder:
+          underMessageTextWidgetBuilder ?? this.underMessageTextWidgetBuilder,
     );
   }
 
