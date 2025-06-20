@@ -58,25 +58,28 @@ class TextBubble extends StatelessWidget {
     if (message.text?.trim().isEmpty ?? true) return const Empty();
     return Padding(
       padding: isOnlyEmoji ? EdgeInsets.zero : textPadding,
-      child: Column(children: [
-        if (textBuilder != null)
-          textBuilder!(context, message)
-        else
-          StreamMessageText(
-            onLinkTap: onLinkTap,
-            message: message,
-            onMentionTap: onMentionTap,
-            messageTheme: isOnlyEmoji
-                ? messageTheme.copyWith(
-                    messageTextStyle: messageTheme.messageTextStyle!.copyWith(
-                      fontSize: 42,
-                    ),
-                  )
-                : messageTheme,
-          ),
-        if (underMessageTextWidgetBuilder != null)
-          underMessageTextWidgetBuilder!(context, message),
-      ]),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          if (textBuilder != null)
+            textBuilder!(context, message)
+          else
+            StreamMessageText(
+              onLinkTap: onLinkTap,
+              message: message,
+              onMentionTap: onMentionTap,
+              messageTheme: isOnlyEmoji
+                  ? messageTheme.copyWith(
+                      messageTextStyle: messageTheme.messageTextStyle!.copyWith(
+                        fontSize: 42,
+                      ),
+                    )
+                  : messageTheme,
+            ),
+          if (underMessageTextWidgetBuilder != null)
+            underMessageTextWidgetBuilder!(context, message),
+        ],
+      ),
     );
   }
 }
